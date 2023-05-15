@@ -53,7 +53,7 @@ def main
       channels[id][:name] = channel.snippet.title
       channels[id][:subscribers] = channel.statistics.subscriber_count
       channels[id][:video_count] = channel.statistics.video_count
-      channels[id][:average_view_count] = channel.statistics.view_count.to_i / channel.statistics.video_count.to_i if channel.statistics.view_count.to_i.positive?
+      channels[id][:average_view_count] = channel.statistics.view_count.to_i / channel.statistics.video_count.to_i if channel.statistics.video_count.to_i.positive?
       channels[id][:description] = channel.snippet.description
 
       emails = channels[id][:description]&.scan(/\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/)
